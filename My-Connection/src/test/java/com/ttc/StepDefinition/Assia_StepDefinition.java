@@ -1,14 +1,34 @@
 package com.ttc.StepDefinition;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.ttc.objects.PageMethodObject;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Assia_StepDefinition {
+public class Assia_StepDefinition extends PageMethodObject {
 	
 	@Given("Login select journey and refresh")
-	public void login_and_select_journey_and_refresh() {
-		System.out.println("Helo");
+	public void login_and_select_journey_and_refresh() throws Exception {
+		LaunchBrowserAndLogin();
+		if(driver.getPageSource().contains("eero")){
+			System.out.println("He/she is an eero customer");
+		}
+		else {
+			System.out.println("He/she is an ookla customer");
+		}
+				
+	}
+	
+	@When("Click the Network Service Status")
+	public void click_the_network_service_status() {
+	    WebElement NSSStatus =driver.findElement(By.xpath(NSS));
+	    String NSSText=NSSStatus.getText();
+	    System.out.println("NetworkPage Status: " + NSSText);
+	    driver.close();
 	}
 
 	@When("Click the My current speeds")
