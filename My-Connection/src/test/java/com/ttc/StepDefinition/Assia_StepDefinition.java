@@ -3,31 +3,53 @@ package com.ttc.StepDefinition;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import com.ttc.objects.PageMethodObject;
 
+import com.ttc.objects.PageMethodObject;
+import com.ttc.reports.ReportManager;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Assia_StepDefinition extends PageMethodObject {
 	
+	@Before
+    public void setUp() {
+        // Start the report before each scenario
+        ReportManager.startReport();
+    }
+	
 	@Given("Login select journey and refresh")
-	public void login_and_select_journey_and_refresh() throws Exception {
-		LaunchBrowserAndLogin();
-		if(driver.getPageSource().contains("eero")){
-			System.out.println("He/she is an eero customer");
+	public void login_and_select_journey_and_refresh() {
+		try {
+			LaunchBrowserAndLogin();
+			ReportManager.createTest("Regression Check");
+			ReportManager.success("User loggedin successfully");
+			if(driver.getPageSource().contains("eero")){
+				ReportManager.success("He is an eero customer");
+			}
+			else {
+				ReportManager.success("He/she is an ookla customer");
+			}
+		} catch (Exception e) {
+			ReportManager.failure("Failure occured at login scenario");
 		}
-		else {
-			System.out.println("He/she is an ookla customer");
-		}
+		
 				
 	}
 	
 	@When("Click the Network Service Status")
 	public void click_the_network_service_status() {
+		try {
 	    WebElement NSSStatus =driver.findElement(By.xpath(NSS));
 	    String NSSText=NSSStatus.getText();
-	    System.out.println("NetworkPage Status: " + NSSText);
+	    ReportManager.success(NSSText);
+		}
+        catch (Exception e) {
+		ReportManager.failure("Failure in NSS component");
+	}
 	    driver.close();
 	}
 
@@ -70,7 +92,13 @@ public class Assia_StepDefinition extends PageMethodObject {
 	public void click_the_email_service_status_tile() {
 		System.out.println("Helo");
 	}
-
+	
+	 @After
+	    public void tearDown() {
+	        // End the report after each scenario
+	        ReportManager.endReport();
+	        driver.quit();
+	    }
 
 
 
