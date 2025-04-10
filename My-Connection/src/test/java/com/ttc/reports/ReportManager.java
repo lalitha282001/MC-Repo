@@ -32,6 +32,11 @@ public class ReportManager {
 	    public static void information(String message) {
 	    	test.log(Status.FAIL, message); 
 	    }
+	    
+	    public static void log(String message) {
+	        System.out.println("[INFO] " + message);
+	        // or extend to log into ExtentReports or another framework
+	    }
 	       
 
 	    public static void endReport() {

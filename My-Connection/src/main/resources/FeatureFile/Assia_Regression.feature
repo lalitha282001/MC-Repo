@@ -11,6 +11,7 @@ Feature: Assia customer MC Dashboard page
 		And Click the Get Started Banner
 		And Click the My router tile
 		And Click the Usage tile
+		And Click the My eero tile
 		And Click the Connected Device tile
 		And Click the My telephone tile
 		And click the My tv tile

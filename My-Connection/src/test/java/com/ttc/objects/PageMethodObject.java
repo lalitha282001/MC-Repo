@@ -50,7 +50,7 @@ protected WebDriver driver = new ChromeDriver();
 	}
 	
 	public void TakeScreenShot() {
-		Shutterbug.shootPage(driver, Capture.FULL, true).save("C:/Users/lalitha.v/eclipse-workspace/Testing/target/Dashboard.png");
+		Shutterbug.shootPage(driver, Capture.FULL, true).save("C:/Users/lalitha.v/eclipse-workspace/git/MC/My-Connection/target/Dashboard.png");
 	}
 
 	protected void journeySelection()
@@ -95,5 +95,10 @@ protected WebDriver driver = new ChromeDriver();
 		TakeScreenShot();
 		
 	}
+	
+	public void BackToMc() {
+		driver.findElement(By.linkText(MyConnectionBreadcrumb)).click();
+	}
+	
 
 }

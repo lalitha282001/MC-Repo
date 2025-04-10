@@ -19,6 +19,11 @@ public class PageObject {
 	protected String MyUsageTile="//div[@aria-label='My usage']";
 	protected String ConnectedDeviceTile="//div[@aria-label='Connected devices']";
 	protected String MyConnectionBreadcrumb="My Connection";
+	protected String MyTelephone="//div[@aria-label='My telephone']";
+	protected String TelephoneTML="(//button[normalize-space()='Test my line'])[1]";
+	protected String MyTV="//div[@aria-label='My TV']";
+	protected String OldTvCustomer="//div[@class='d-flex flex-row flex-wrap tiles-group']";
+	protected String TVhub="(//h3[normalize-space()='Talk Talk TV Hub'])[1]";
 	
 	protected String ServiceStatusRed="//option[@value='19: Service Status - red']";
 	protected String ServiceStatusRedIncident="//option[@value='20: Service Status - red (incident)']";
@@ -36,6 +41,7 @@ public class PageObject {
 	protected String TMCInvalidTreatmentCode="//option[@value='32: TMC - invalid treatment code']";
 	protected String TML="//option[@value='33: TML']";
 	
+	protected String SpeedModule="//div[@class='currentSpeedSection']";
 	protected String AssiaSpeedSuccess="//option[@value='52: Assia speed test - Success']";
 	protected String AssiaSpeedAmber="//option[@value='53: Assia speed test - Amber']";
 	protected String AssiaGuaranteedSpeedNeutral="//option[@value='54: Assia Speed test - No SI data for guaranteed s']";
@@ -54,6 +60,29 @@ public class PageObject {
 	protected String Maintenace="//div[normalize-space()='Phone']";
 	protected String MaintenaceStatus="(//div[contains(text(),'Status: Good')])[3]";
 	
+	protected String MyRouterTile="//div[@aria-label='My router']";
+	protected String AboutRouterText="//h3[normalize-space()='About your router']";
+	protected String RouterClose="//button[normalize-space()='Close']";
+	protected String MyUsageTitle="//h1[normalize-space()='My usage']";
+	protected String UsageBar="(//*[name()='svg'])[1]";
+	protected String MyEeroTile="//div[@aria-label='My eero']";
+	protected String MyEeroTitle="//h1[normalize-space()='My eero']";
+	protected String EeroImage="//img[@src='https://m0.ttxm.co.uk/gen8/service-centre/assets/images/eero Pro.png";
+	protected String SetupTile="//div[@aria-label='Set up']";
+	protected String SetupPage="//h3[normalize-space()='Set up']";
+	protected String SetupPagelink="(//li[@role='link'])[1]";
+	protected String SetupPagecontainer="(//div[@class='article-page'])[1]";
+	protected String ManageContainer="(//div[@class='ng-star-inserted'])[2]";
+	protected String EeroPageLP="//div[@aria-label='Live chat']";
+	protected String LiveChat="(//div[@class='lp_header-content-wrapper'])[2]";
+	protected String Livechat3dot="(//*[name()='svg'][@class='lpc_maximized-header__menu-button-asset lpc_desktop'])[1]";
+	protected String LPEndCovo="(//span[@class='lp_action_wrapper'])[3]";
+	protected String Setupbreadcrumb="//a[normalize-space()='Set up']";
+	protected String MyeeroBreadcrumb="//a[normalize-space()='My eero']";
+	protected String ManageTile="//div[@aria-label='Manage']";
+	protected String ProfileTile="//div[@aria-label='Profiles']";
+	protected String FixTile="//div[@aria-label='Fix']";
+	protected String NetworkTextEeropage="//h4[normalize-space()='Network']";
 	
 
 }
