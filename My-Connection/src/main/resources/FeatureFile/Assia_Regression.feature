@@ -1,6 +1,6 @@
 
 
-Feature: Assia customer MC Dashboard page
+Feature: MC Dashboard page - Login, Network section
   Automating the tiles clicks and the page functionality check
 
 

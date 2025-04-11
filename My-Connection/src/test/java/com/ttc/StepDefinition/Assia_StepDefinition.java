@@ -21,7 +21,7 @@ public class Assia_StepDefinition extends PageMethodObject {
 
 	@Before
 	public void setUp() {
-		// Start the report before each scenario
+	
 		ReportManager.startReport();
 	}
 
@@ -35,7 +35,6 @@ public class Assia_StepDefinition extends PageMethodObject {
 			ReportManager.failure("Exception occurred: " + e.getMessage());
 			e.printStackTrace();
 		}
-
 	}
 
 	@When("Click the Network Service Status")
@@ -117,8 +116,11 @@ public class Assia_StepDefinition extends PageMethodObject {
 
 	}
 
+
+	
 	@When("Click the My eero tile")
 	public void click_the_my_eero_tile() {
+		
 		try {
 			List<WebElement> elements = driver.findElements(By.xpath(MyEeroTile));
 			if (!elements.isEmpty()) {
@@ -128,13 +130,15 @@ public class Assia_StepDefinition extends PageMethodObject {
 
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 				wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(EeroImage)));
+				WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(60));
+				wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(SetupTile)));
 				ReportManager.success("Eero page is displayed.");
 				TakeScreenShot();
 
 				driver.findElement(By.xpath(SetupTile)).click();
 				ReportManager.success("Clicked on Setup tile.");
-				WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(60));
-				wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath(NetworkTextEeropage)));
+				WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(60));
+				wait2.until(ExpectedConditions.presenceOfElementLocated(By.xpath(NetworkTextEeropage)));
 				driver.findElement(By.xpath(SetupPagelink)).click();
 				WebDriverWait wait11 = new WebDriverWait(driver, Duration.ofSeconds(60));
 				wait11.until(ExpectedConditions.presenceOfElementLocated(By.xpath(SetupPagecontainer)));
@@ -190,6 +194,7 @@ public class Assia_StepDefinition extends PageMethodObject {
 	}
 
 	@When("Click the My telephone tile")
+	
 	public void click_the_my_telephone_tile() {
 		try {
 			List<WebElement> elements = driver.findElements(By.xpath(MyTelephone));
@@ -213,27 +218,28 @@ public class Assia_StepDefinition extends PageMethodObject {
 	@When("click the My tv tile")
 	public void click_the_my_tv_tile() {
 		try {
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 			List<WebElement> elements = driver.findElements(By.xpath(MyTV));
-		    if (!elements.isEmpty()) {
-		    ReportManager.success("My TV tile is present!");
-		driver.findElement(By.xpath(MyTV)).click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		List<WebElement> elements1 = driver.findElements(By.xpath(OldTvCustomer));
-	    if (!elements1.isEmpty()) {
-		ReportManager.success("He is an older TV box customer");	    	
-	    }else {
-	    	driver.findElements(By.xpath(TVhub));
-	    	ReportManager.success("He is an TV hub customer");		    	
-	    }}
-	    else{
-	    	ReportManager.success("He is an TV box 4k customer");	
-	    	}
+			if (!elements.isEmpty()) {
+				ReportManager.success("My TV tile is present!");
+				driver.findElement(By.xpath(MyTV)).click();
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+				List<WebElement> elements1 = driver.findElements(By.xpath(OldTvCustomer));
+				if (!elements1.isEmpty()) {
+					ReportManager.success("He is an older TV box customer");
+				} else {
+					driver.findElements(By.xpath(TVhub));
+					ReportManager.success("He is an TV hub customer");
+				}
+			} else {
+				ReportManager.success("He is an TV box 4k customer");
+			}
 			TakeScreenShot();
-		    BackToMc();
-		    System.out.println("Back to MC");
-	    }
-		
-	    catch (Exception e) {
+			BackToMc();
+			System.out.println("Back to MC");
+		}
+
+		catch (Exception e) {
 			ReportManager.failure("Exception occurred: " + e.getMessage());
 			e.printStackTrace();
 		}

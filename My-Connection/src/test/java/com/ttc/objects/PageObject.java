@@ -67,7 +67,7 @@ public class PageObject {
 	protected String UsageBar="(//*[name()='svg'])[1]";
 	protected String MyEeroTile="//div[@aria-label='My eero']";
 	protected String MyEeroTitle="//h1[normalize-space()='My eero']";
-	protected String EeroImage="//img[@src='https://m0.ttxm.co.uk/gen8/service-centre/assets/images/eero Pro.png";
+	protected String EeroImage="//div[@class='eero_image']//img";
 	protected String SetupTile="//div[@aria-label='Set up']";
 	protected String SetupPage="//h3[normalize-space()='Set up']";
 	protected String SetupPagelink="(//li[@role='link'])[1]";
